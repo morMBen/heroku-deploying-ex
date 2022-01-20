@@ -3,7 +3,7 @@ const app = express();
 
 const path = require('path');
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, 'client/build');
 
