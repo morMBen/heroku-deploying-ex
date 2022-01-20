@@ -10,12 +10,9 @@ const publicDirectoryPath = path.join(__dirname, 'client/build');
 
 app.use(cors());
 // Setup static directory to serve
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(publicDirectoryPath));
-  app.get('*', (req, res) => {
-    req.sendFile(path.resolve(__dirname, 'client/build/index.html'));
-  });
-}
+app.use(express.static(publicDirectoryPath));
+// if (process.env.NODE_ENV === 'production') {
+// }
 
 app.get('/api/users', (req, res) => {
   try {
@@ -25,6 +22,9 @@ app.get('/api/users', (req, res) => {
   }
 });
 
+app.get('*', (req, res) => {
+  req.sendFile(path.resolve(__dirname, 'client/build/index.html'));
+});
 app.listen(port, (e) => {
   if (e) return console.log(e);
   console.log('Server running on port + ' + port);
