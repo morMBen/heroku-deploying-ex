@@ -5,7 +5,7 @@ import myApi from './api/api';
 function App() {
   const [user, setUser] = useState('');
   const getReq = async () => {
-    const { data } = await myApi.get('users');
+    const { data } = await myApi.get('/users');
     setUser(data.userName);
     console.log(data.userName);
   };
