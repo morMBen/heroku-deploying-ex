@@ -26,7 +26,7 @@ app.get('/api/users', (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   req.sendFile(path.resolve(__dirname, 'client/build/index.html'));
 });
 app.listen(port, (e) => {
