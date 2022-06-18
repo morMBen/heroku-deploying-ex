@@ -8,18 +8,15 @@ const port = process.env.PORT || 5000;
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, 'client/build');
 
-// app.use(cors());
+app.use(cors());
 app.use(express.static(publicDirectoryPath));
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET,POST,PUT,PATCH,DELETE,OPTIONS'
-  );
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 app.get('/api/users', (req, res) => {
   try {
