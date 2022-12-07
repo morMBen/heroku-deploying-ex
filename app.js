@@ -26,9 +26,9 @@ app.get('/api/users', (req, res) => {
   }
 });
 
-app.get('/*', (req, res) => {
-  req.sendFile(path.resolve(__dirname, 'client/build/index.html'));
-});
+// app.get('/*', (req, res) => {
+//   req.sendFile(path.resolve(__dirname, 'client/build/index.html'));
+// });
 app.listen(port, (e) => {
   if (e) return console.log(e);
   console.log('Server running on port + ' + port);
